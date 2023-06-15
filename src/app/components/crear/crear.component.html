@@ -1,0 +1,46 @@
+<div class="app container col-12">
+  <div class="row">
+    <div class="lg:col-8">
+      <h1 class="text-right">
+        {{title}}
+      </h1>
+    </div>
+  </div>
+  <div class="flex flex-wrapp">
+    <div class="lg:col-4">
+      <img width="300" src="../assets/image/wom.png">
+    </div>
+    <div class="lg:col-8 surface-border">
+      <form [formGroup]="forms!">
+        <h2>Crear Datos:</h2>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" formControlName="nombre" placeholder="Ingresa un nombre"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+          <p-message severity="warn" text="Mensaje de advertencia" styleClass="mr-2"></p-message>
+        </div>
+        <div class="field">
+          <label for="posicion">Posición</label>
+          <input id="posicion" type="text" formControlName="posicion" placeholder="Ingresa una posición"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+          <p-message severity="success" text="Mensaje de advertencia" styleClass="mr-2"></p-message>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="text" formControlName="email" placeholder="Ingresa un email"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+          <p-message severity="warn" text="Mensaje de advertencia" styleClass="mr-2"></p-message>
+        </div>
+        <div class="field">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button pButton type="button" [disabled]="forms?.invalid!" (click)="agregarEmpleado()"
+              label="Agregar"></button>
+            <p-message severity="warn" text="Mensaje de advertencia" styleClass="mr-2"></p-message>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-editar [empleadoLista]="objetoEmpleado"></app-editar>
+<p-toast position="top-left"></p-toast>
